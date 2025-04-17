@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:32:09 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/16 11:32:33 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/17 18:05:55 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int init_data(t_data *data)
     pthread_mutex_init(&data->print_mutex, NULL);
     pthread_mutex_init(&data->death_mutex, NULL);
     data->someone_died = 0;
-    for (i = 0; i < data->num_philos; i++)
+    i = 0;
+    while (i < data->num_philos)
     {
         pthread_mutex_init(&data->forks[i], NULL);
         data->philos[i].id = i + 1;
@@ -31,6 +32,7 @@ int init_data(t_data *data)
         data->philos[i].last_meal = 0;
         data->philos[i].meals_eaten = 0;
         data->philos[i].data = data;
+        i++;
     }
     data->start_time = get_time();
     return (0);
