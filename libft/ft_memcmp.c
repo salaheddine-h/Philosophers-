@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/17 12:01:18 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/17 12:20:15 by salhali          ###   ########.fr       */
+/*   Created: 2024/11/01 12:24:43 by salhali           #+#    #+#             */
+/*   Updated: 2024/11/08 14:53:07 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "libft.h"
 
-// Function to check if string is a valid positive number
-static int is_valid_number(char *str)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-    int i;
+	size_t			i;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
 
-    i = 0;
-    if (!str || str[0] == '\0')
-        return (0);
-    while (str[i])
-    {
-        if (str[i] < '0' || str[i] > '9')
-            return (0);
-        i++;
-    }
-    return (1);
+	i = 0;
+	ptr1 = (unsigned char *)s1;
+	ptr2 = (unsigned char *)s2;
+	while (i < n)
+	{
+		if (ptr1[i] != ptr2[i])
+			return (ptr1[i] - ptr2[i]);
+		i++;
+	}
+	return (0);
 }
-

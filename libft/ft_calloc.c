@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/17 12:01:18 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/17 12:20:15 by salhali          ###   ########.fr       */
+/*   Created: 2024/11/01 16:02:35 by salhali           #+#    #+#             */
+/*   Updated: 2024/11/16 20:10:17 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "libft.h"
 
-// Function to check if string is a valid positive number
-static int is_valid_number(char *str)
+void	*ft_calloc(size_t count, size_t size)
 {
-    int i;
+	void	*s;
 
-    i = 0;
-    if (!str || str[0] == '\0')
-        return (0);
-    while (str[i])
-    {
-        if (str[i] < '0' || str[i] > '9')
-            return (0);
-        i++;
-    }
-    return (1);
+	if (size && count > SIZE_MAX / size)
+		return (NULL);
+	s = malloc(count * size);
+	if (!s)
+		return (NULL);
+	ft_bzero(s, count * size);
+	return (s);
 }
-

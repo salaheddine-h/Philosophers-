@@ -1,23 +1,32 @@
-NAME = philo
 
 CC = cc
 
 CFLAGS = #-Wall -Wextra -Werror
 
-SRCS = main.c parse_args.c init_data.c  philo_routine.c  monitor.c  get_time.c print_state.c cleanup.c utils.cc
+SRCS = main.c parse_args.c init_data.c  philo_routine.c  monitor.c  get_time.c print_state.c cleanup.c utils.c
 
 OBJS = $(SRCS:.c=.o)
 
+LIBFT = libft/libft.a
+
+NAME = philo
+
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+$(NAME): $(SRCS) $(LIBFT)
+	$(CC) $(CFLAGS) $(SRCS) $(LIBFT) -o $(NAME)
+
+$(LIBFT) : 
+	make -s -C libft
+	make bonus -s -C libft
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(NAME)
+	make clean -C libft
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(OBJS)
+	make fclean -C libft
 
 re: fclean all
 

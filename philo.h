@@ -6,13 +6,14 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/17 12:02:01 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/17 12:53:08 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 #define PHILO_H
 
+#include "./libft/libft.h" // library ibft all my function 
 #include <pthread.h> // For thread management
 #include <stdio.h> // For standard input/output
 #include <stdlib.h> // memory allocation
@@ -33,10 +34,10 @@ typedef struct s_philo
 
 typedef struct s_data
 {
-	int num_philos;
-	long time_to_die;
-	long time_to_eat;
-	long time_to_sleep;
+	int num_philos; // 5 == argv[1]
+	long time_to_die; // Maximum time a philosopher can go without eating before they die
+	long time_to_eat; // time it takes for a philosopher to eat
+	long time_to_sleep; // time  a philosopher spends sleeping
 	int meals_required;
 	t_philo *philos;
 	pthread_mutex_t *forks;

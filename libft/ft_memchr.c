@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/17 12:01:18 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/17 12:20:15 by salhali          ###   ########.fr       */
+/*   Created: 2024/11/01 11:55:20 by salhali           #+#    #+#             */
+/*   Updated: 2024/11/13 21:17:15 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "libft.h"
 
-// Function to check if string is a valid positive number
-static int is_valid_number(char *str)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    int i;
+	unsigned char	*ptr;
+	size_t			i;
 
-    i = 0;
-    if (!str || str[0] == '\0')
-        return (0);
-    while (str[i])
-    {
-        if (str[i] < '0' || str[i] > '9')
-            return (0);
-        i++;
-    }
-    return (1);
+	i = 0;
+	ptr = (unsigned char *)s;
+	while (i < n)
+	{
+		if (ptr[i] == (unsigned char)c)
+		{
+			return (ptr + i);
+		}
+		i++;
+	}
+	return (NULL);
 }
-

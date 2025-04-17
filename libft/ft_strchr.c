@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/17 12:01:18 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/17 12:20:15 by salhali          ###   ########.fr       */
+/*   Created: 2024/10/23 13:01:24 by salhali           #+#    #+#             */
+/*   Updated: 2024/11/08 14:53:46 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "libft.h"
 
-// Function to check if string is a valid positive number
-static int is_valid_number(char *str)
+char	*ft_strchr(const char *str, int c)
 {
-    int i;
+	size_t	i;
 
-    i = 0;
-    if (!str || str[0] == '\0')
-        return (0);
-    while (str[i])
-    {
-        if (str[i] < '0' || str[i] > '9')
-            return (0);
-        i++;
-    }
-    return (1);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == (unsigned char)c)
+			return ((char *)&str[i]);
+		i++;
+	}
+	if ((unsigned char)c == '\0')
+		return ((char *)&str[i]);
+	return (NULL);
 }
-

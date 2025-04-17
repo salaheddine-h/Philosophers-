@@ -6,64 +6,9 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/17 11:57:47 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/17 12:53:48 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// #include <pthread.h>
-// #include <stdio.h>
-
-
-// void *routine(void *arg)
-// {
-//     printf("Thread is running!\n");
-//     return NULL;
-// }
-
-// int main() 
-// {
-//     pthread_t i;
-//     pthread_create(&i, NULL, routine, NULL);
-//     pthread_join(i, NULL);
-//     return 0;
-// }
-
-// #include <stdio.h>
-// #include <string.h>
-// #include <pthread.h>
-
-// // Global variable:
-// int i = 2;
-
-// void* foo(void* p)
-// {
-//   // Print value received as argument:
-//   printf("Value recevied as argument in starting routine: ");
-//   printf("%i\n", * (int*)p);
-
-//   // Return reference to global variable:
-//   pthread_exit(&i);
-// }
-
-
-// // Kol philosopher kaymchi 3la forma dyal thread f C (e.g. pthread_create()).
-
-
-// int main(void)
-// {
-// 	int	j;
-// 	pthread_t id;
-
-//   j = 1;
-//   pthread_create(&id, NULL, foo, &j);
-    
-//   int* ptr;
-
-//   // Wait for foo() and retrieve value in ptr;
-//   pthread_join(id, (void**)&ptr);
-//   printf("Value recevied by parent from child: ");
-//   printf("%i\n", *ptr);
-// }
 
 #include "philo.h"
 
@@ -73,11 +18,16 @@ int main(int argc, char **argv)
     pthread_t monitor_thread;
     int i;
 
-    if(argc != 5)
-        return(0);
+    // if(is_valid_number(argv) == 0)
+    // {
+    //     printf("Invalid arguments\n");
+    //     return (1);
+    // }
+    // ft_memset(&data, 0, sizeof(t_data));
+    printf("%d\n", data.num_philos);
     if (parse_args(argc, argv, &data))
     {
-        printf("Invalid arguments\n");
+        printf("Invalid arguments77\n");
         return (1);
     }
     if (init_data(&data))
@@ -100,3 +50,11 @@ int main(int argc, char **argv)
     cleanup(&data);
     return (0);
 }
+
+// ./philo 5 800 200 200
+
+// 5 philosophers
+// Philosophers die if they don't eat for 800ms
+// Each philosopher takes 200ms to eat
+// Each philosopher sleeps for 200ms after eating
+// The simulation continues until a philosopher dies

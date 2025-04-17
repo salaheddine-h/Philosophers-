@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/17 12:01:18 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/17 12:20:15 by salhali          ###   ########.fr       */
+/*   Created: 2024/11/03 18:09:24 by salhali           #+#    #+#             */
+/*   Updated: 2024/11/07 13:14:41 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "libft.h"
 
-// Function to check if string is a valid positive number
-static int is_valid_number(char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-    int i;
+	char	*join;
+	size_t	s1_len;
+	size_t	s2_len;
 
-    i = 0;
-    if (!str || str[0] == '\0')
-        return (0);
-    while (str[i])
-    {
-        if (str[i] < '0' || str[i] > '9')
-            return (0);
-        i++;
-    }
-    return (1);
+	if (!s1 || !s2)
+		return (NULL);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	join = malloc(sizeof(char) * (s1_len + s2_len + 1));
+	if (!join)
+		return (NULL);
+	ft_memcpy(join, s1, s1_len);
+	ft_memcpy(join + s1_len, s2, s2_len);
+	join[s1_len + s2_len] = '\0';
+	return (join);
 }
-
