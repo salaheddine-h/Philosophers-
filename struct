@@ -1,0 +1,50 @@
+[Start]
+   |
+   v
+[Parse Arguments]
+   | (argc = 5 or 6?)
+   | Yes: Store in t_data
+   | No: Exit with error
+   v
+[Initialize Data]
+   | - Allocate philos, forks
+   | - Init mutexes (forks, print, death)
+   | - Set start_time
+   | (Success?)
+   | Yes: Proceed
+   | No: Exit with error
+   v
+[Create Threads]
+   | - For each philosopher:
+   |   - Create thread with philo_routine
+   | - Create monitor thread
+   v
+[Philosopher Routine] (Parallel for each thread)
+   | - Loop until death or meals done:
+   |   - Think
+   |   - Lock left fork → Print
+   |   - Lock right fork → Print
+   |   - Eat → Update last_meal, meals_eaten → Print
+   |   - Unlock forks
+   |   - Sleep → Print
+   v
+[Monitor Routine] (Parallel)
+   | - Loop:
+   |   - Check each philosopher:
+   |     - If (current_time - last_meal > time_to_die):
+   |       - Set someone_died
+   |       - Print "died"
+   |       - Exit
+   |     - If (meals_required && all ate enough):
+   |       - Set someone_died
+   |       - Exit
+   v
+[Join Threads]
+   | - Wait for all philosopher threads
+   | - Wait for monitor thread
+   v
+[Cleanup]
+   | - Destroy mutexes
+   | - Free memory
+   v
+[End]
