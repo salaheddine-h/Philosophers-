@@ -6,7 +6,7 @@
 /*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/17 18:22:45 by salah            ###   ########.fr       */
+/*   Updated: 2025/04/17 18:28:18 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ int main(int argc, char **argv)
         printf("Initialization failed\n");
         return (1);
     }
-    printf("%d\n", data.num_philos);
-    printf("%ld\n", data.time_to_die);
-    printf("%ld\n", data.time_to_eat);
-    printf("%ld\n", data.time_to_sleep);
-    printf("%d\n", data.meals_required);
+    // printf("%d\n", data.num_philos);
+    // printf("%ld\n", data.time_to_die);
+    // printf("%ld\n", data.time_to_eat);
+    // printf("%ld\n", data.time_to_sleep);
+    // printf("%d\n", data.meals_required);
     // printf("ID : %d\n", philo.id);
     // printf("last_meal : %ld\n", philo.last_meal);
     // printf("meals_eaten : %d\n", philo.meals_eaten);
@@ -71,11 +71,11 @@ int main(int argc, char **argv)
     //     pthread_join(data.philos[i].thread, NULL);
     // }
     // pthread_join(monitor_thread, NULL);
-    // cleanup(&data);
+    cleanup(&data);
     return (0);
 }
 
-// ./philo 5 800 200 200
+// ./philo 5 800 200 200 7
 
 // 5 philosophers
 // Philosophers die if they don't eat for 800ms
