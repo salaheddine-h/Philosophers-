@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
+/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/19 12:35:22 by salah            ###   ########.fr       */
+/*   Updated: 2025/04/19 22:04:02 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 
 #define SUCCESS 0
 #define FAILURE 1
+
+
+// Setup colors
+
+#define RED_BG_WHITE_TXT "\033[1;37;41m"
+#define GREEN_TXT "\033[1;32m"
+#define RESET_COLOR "\033[0m"
+
 
 #include "./libft/libft.h" // library ibft all my function
 #include <pthread.h> // For thread management

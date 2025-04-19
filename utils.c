@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
+/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:01:18 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/19 18:27:08 by salah            ###   ########.fr       */
+/*   Updated: 2025/04/19 22:03:44 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int is_valid_number(const char *str)
 }
 void print_data(t_data *data)
 {
-    printf("Spam : Run Function Print_data\n\n");
-	printf("Philos: %d\n", data->num_philos);
-	printf("Die: %ld\n", data->time_to_die);
-	printf("Eat: %ld\n", data->time_to_eat);
-	printf("Sleep: %ld\n", data->time_to_sleep);
-	printf("Meals: %d\n\n", data->meals_required);
-    printf("Spam : CLose Function Print_data\n");
+    printf(RED_BG_WHITE_TXT "Spam : Run Function Print_data\n\n" RESET_COLOR);
+    printf(GREEN_TXT "Philos: %d\n" RESET_COLOR, data->num_philos);
+    printf(GREEN_TXT  "Die:    %ld\n" RESET_COLOR, data->time_to_die);
+    printf(GREEN_TXT "Eat:    %ld\n" RESET_COLOR, data->time_to_eat);
+    printf(GREEN_TXT  "Sleep:  %ld\n" RESET_COLOR, data->time_to_sleep);
+    printf(GREEN_TXT "Meals:  %d\n\n" RESET_COLOR, data->meals_required);
+    printf(RED_BG_WHITE_TXT "Spam : Close Function Print_data\n" RESET_COLOR);
 }
 
 int	ft_atoi_safe(const char *str, long *out)

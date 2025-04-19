@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
+/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/19 18:44:54 by salah            ###   ########.fr       */
+/*   Updated: 2025/04/19 21:55:52 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@ int main(int argc, char **argv)
 	int i;
 
     if (argc != 5 && argc != 6) // ndarbo liya chi clr hmaar aykon hssn (ERROR)
-		return (printf("Incorrect number of arguments ! [ You are Bad ]\n"), SUCCESS);
+		return (printf("\033[1;37;41mIncorrect number of arguments ! [ You need just 5 arguments ]\n\033[0m") , SUCCESS);
 	ft_memset(&data, 0, sizeof(t_data));
 	if (parse_args(argc, argv, &data)) //if function is FAILURE (return (1))
 	{
 		printf("[ Your input Not valid ! ]\n");
 		return (FAILURE);
 	}
-
-    print_data(&data);
-	// if (init_data(&data))
-	// {
-	// 	printf("Initialization failed\n");
-	// 	return (FAILURE);
-	// }
+    // print_data(&data);
+	if (init_data(&data))
+	{
+		printf("Initialization failed\n");
+		return (FAILURE);
+	}
+	print_data(&data);
 	// i = 0;
 	// while (i < data.num_philos)
 	// 	pthread_create(&data.philos[i++].thread, NULL, philo_routine, &data.philos[i]);
@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 	// while (i < data.num_philos)
 	// 	pthread_join(data.philos[i++].thread, NULL);
 	// pthread_join(monitor_thread, NULL);
-	// cleanup(&data);
+	cleanup(&data);
 	return (SUCCESS);
 }
 
