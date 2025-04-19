@@ -6,12 +6,15 @@
 /*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/19 12:25:47 by salah            ###   ########.fr       */
+/*   Updated: 2025/04/19 12:35:22 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 #define PHILO_H
+
+#define SUCCESS 0
+#define FAILURE 1
 
 #include "./libft/libft.h" // library ibft all my function
 #include <pthread.h> // For thread management

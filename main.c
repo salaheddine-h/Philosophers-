@@ -6,7 +6,7 @@
 /*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/19 12:33:43 by salah            ###   ########.fr       */
+/*   Updated: 2025/04/19 12:35:58 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int main(int argc, char **argv)
 	if (parse_args(argc, argv, &data))
 	{
 		printf("Invalid arguments\n");
-		return (1);
+		return (FAILURE);
 	}
     // print_data(&data);
 	if (init_data(&data))
 	{
 		printf("Initialization failed\n");
-		return (1);
+		return (FAILURE);
 	}
 	i = 0;
 	while (i < data.num_philos)
