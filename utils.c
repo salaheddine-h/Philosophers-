@@ -6,7 +6,7 @@
 /*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:01:18 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/19 12:20:31 by salah            ###   ########.fr       */
+/*   Updated: 2025/04/19 18:27:08 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ int is_valid_number(const char *str)
 	int i = 0;
 
 	if (!str || str[0] == '\0')
-		return (0);
+		return (SUCCESS);
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
-			return (0);
+			return (SUCCESS);
 		i++;
 	}
-	return (1);
+	return (FAILURE);
 }
 void print_data(t_data *data)
 {
@@ -43,18 +43,18 @@ int	ft_atoi_safe(const char *str, long *out)
 	long	result = 0;
 
 	if (!str || str[0] == '\0')
-		return (0);
+		return (SUCCESS);
 
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
-			return (0);
+			return (SUCCESS);
 		result = result * 10 + (str[i] - '0');
 		if (result > 2147483647)
-			return (0);
+			return (SUCCESS);
 		i++;
 	}
 	*out = result;
-	return (1);
+	return (FAILURE);
 }
 

@@ -6,12 +6,11 @@
 /*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/19 12:35:58 by salah            ###   ########.fr       */
+/*   Updated: 2025/04/19 18:44:54 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
 
 int main(int argc, char **argv)
 {
@@ -19,28 +18,31 @@ int main(int argc, char **argv)
 	pthread_t monitor_thread;
 	int i;
 
+    if (argc != 5 && argc != 6) // ndarbo liya chi clr hmaar aykon hssn (ERROR)
+		return (printf("Incorrect number of arguments ! [ You are Bad ]\n"), SUCCESS);
 	ft_memset(&data, 0, sizeof(t_data));
-	if (parse_args(argc, argv, &data))
+	if (parse_args(argc, argv, &data)) //if function is FAILURE (return (1))
 	{
-		printf("Invalid arguments\n");
+		printf("[ Your input Not valid ! ]\n");
 		return (FAILURE);
 	}
-    // print_data(&data);
-	if (init_data(&data))
-	{
-		printf("Initialization failed\n");
-		return (FAILURE);
-	}
-	i = 0;
-	while (i < data.num_philos)
-		pthread_create(&data.philos[i++].thread, NULL, philo_routine, &data.philos[i]);
-	pthread_create(&monitor_thread, NULL, (void *)monitor, &data);
-	i = 0;
-	while (i < data.num_philos)
-		pthread_join(data.philos[i++].thread, NULL);
-	pthread_join(monitor_thread, NULL);
-	cleanup(&data);
-	return (0);
+
+    print_data(&data);
+	// if (init_data(&data))
+	// {
+	// 	printf("Initialization failed\n");
+	// 	return (FAILURE);
+	// }
+	// i = 0;
+	// while (i < data.num_philos)
+	// 	pthread_create(&data.philos[i++].thread, NULL, philo_routine, &data.philos[i]);
+	// pthread_create(&monitor_thread, NULL, (void *)monitor, &data);
+	// i = 0;
+	// while (i < data.num_philos)
+	// 	pthread_join(data.philos[i++].thread, NULL);
+	// pthread_join(monitor_thread, NULL);
+	// cleanup(&data);
+	return (SUCCESS);
 }
 
 // ./philo 5 800 200 200 7
