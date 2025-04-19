@@ -6,7 +6,7 @@
 /*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/17 17:42:16 by salah            ###   ########.fr       */
+/*   Updated: 2025/04/19 11:53:39 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_data
 	t_philo *philos;
 	pthread_mutex_t *forks;
 
-	
+
 	pthread_mutex_t print_mutex;
 	pthread_mutex_t death_mutex;
 	int someone_died;
@@ -61,6 +61,6 @@ void monitor(t_data *data);
 long get_time(void);
 void print_state(t_philo *philo, char *state);
 void cleanup(t_data *data);
-int is_valid_number(char *str);
+int	is_valid_number(const char *str);
 
 #endif
