@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:01:18 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/19 22:03:44 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/19 22:22:37 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int	ft_atoi_safe(const char *str, long *out)
 
 	if (!str || str[0] == '\0')
 		return (SUCCESS);
-
+	// if(str[i] == '+')
+	// 	i++;
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
