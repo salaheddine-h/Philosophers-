@@ -6,7 +6,7 @@
 /*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/19 11:53:39 by salah            ###   ########.fr       */
+/*   Updated: 2025/04/19 12:05:48 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ long get_time(void);
 void print_state(t_philo *philo, char *state);
 void cleanup(t_data *data);
 int	is_valid_number(const char *str);
+void print_data(t_data *data);
 
 #endif

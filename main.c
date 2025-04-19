@@ -6,7 +6,7 @@
 /*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/19 12:02:49 by salah            ###   ########.fr       */
+/*   Updated: 2025/04/19 12:06:04 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 		printf("Invalid arguments\n");
 		return (1);
 	}
-
+    print_data(&data);
 	if (init_data(&data))
 	{
 		printf("Initialization failed\n");
