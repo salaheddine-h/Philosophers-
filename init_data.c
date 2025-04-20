@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:32:09 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/20 16:46:30 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/20 19:00:09 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int init_data(t_data *data)
         i++;
     }
     data->start_time = get_time();
+    // printf("%ld\n",data->start_time);
     return (SUCCESS);
 }

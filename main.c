@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/20 16:45:14 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/20 19:15:36 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,21 @@ int main(int argc, char **argv)
 	// 	return (printf("\033[1;37;41mIncorrect number of arguments ! [ You need just 5 arguments ]\n\033[0m") , SUCCESS);
 	ft_memset(&data, 0, sizeof(t_data));
 	if (parse_args(argc, argv, &data))
-	{
-		printf("[ Your input Not valid ! ]\n");
-		return (FAILURE);
-	}
+		return (printf("[ Your input Not valid ! ]\n"),FAILURE);
 	if (init_data(&data))
-	{
-		printf("Initialization failed\n");
-		return (FAILURE);
-	}
+		return (printf("Initialization failed\n"), FAILURE);
 	print_data(&data);
-	// i = 0;
-	// while (i < data.num_philos)
-	// 	pthread_create(&data.philos[i++].thread, NULL, philo_routine, &data.philos[i]);
-	// pthread_create(&monitor_thread, NULL, (void *)monitor, &data);
-	// i = 0;
-	// while (i < data.num_philos)
-	// 	pthread_join(data.philos[i++].thread, NULL);
-	// pthread_join(monitor_thread, NULL);
+	i = 0;
+	while (i < data.num_philos)
+	{
+		pthread_create(&data.philos[i].thread, NULL, philo_routine, &data.philos[i]);
+		i++;
+	}
+	pthread_create(&monitor_thread, NULL, (void *)monitor, &data);
+	i = 0;
+	while (i < data.num_philos)
+		pthread_join(data.philos[i++].thread, NULL);
+	pthread_join(monitor_thread, NULL);
 	cleanup(&data);
 	return (SUCCESS);
 }
