@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/19 21:55:52 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/20 16:45:14 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@ int main(int argc, char **argv)
 	pthread_t monitor_thread;
 	int i;
 
-    if (argc != 5 && argc != 6) // ndarbo liya chi clr hmaar aykon hssn (ERROR)
-		return (printf("\033[1;37;41mIncorrect number of arguments ! [ You need just 5 arguments ]\n\033[0m") , SUCCESS);
+    // if (argc != 5 && argc != 6) // ndarbo liya chi clr hmaar aykon hssn (ERROR)
+	// 	return (printf("\033[1;37;41mIncorrect number of arguments ! [ You need just 5 arguments ]\n\033[0m") , SUCCESS);
 	ft_memset(&data, 0, sizeof(t_data));
-	if (parse_args(argc, argv, &data)) //if function is FAILURE (return (1))
+	if (parse_args(argc, argv, &data))
 	{
 		printf("[ Your input Not valid ! ]\n");
 		return (FAILURE);
 	}
-    // print_data(&data);
 	if (init_data(&data))
 	{
 		printf("Initialization failed\n");

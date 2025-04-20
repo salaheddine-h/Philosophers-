@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
+/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:31:34 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/19 18:44:27 by salah            ###   ########.fr       */
+/*   Updated: 2025/04/20 16:33:05 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	check_args_validity(int argc, char **argv)
 {
 	int	i;
 
-	// if (argc != 5 && argc != 6)
-	// 	return (SUCCESS);
+    if (argc != 5 && argc != 6) // ndarbo liya chi clr hmaar aykon hssn (ERROR)
+		return (printf("\033[1;37;41mIncorrect number of arguments ! [ You need just 5 arguments ]\n\033[0m") , SUCCESS);
 	i = 1;
 	while (i < argc)
 	{

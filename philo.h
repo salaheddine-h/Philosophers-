@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/19 22:04:02 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/20 16:26:45 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@
 #define SUCCESS 0
 #define FAILURE 1
 
-
 // Setup colors
 
 #define RED_BG_WHITE_TXT "\033[1;37;41m"
 #define GREEN_TXT "\033[1;32m"
 #define RESET_COLOR "\033[0m"
-
 
 #include "./libft/libft.h" // library ibft all my function
 #include <pthread.h> // For thread management
@@ -31,7 +29,6 @@
 #include <sys/time.h> // For timing functions
 #include <unistd.h> // For POSIX operating system API access
 #include <limits.h> // for INT_MAX / INT_MIN
-
 
 typedef struct s_philo
 {
@@ -50,14 +47,9 @@ typedef struct s_data
 	long time_to_die; // Maximum time a philosopher can go without eating before they die
 	long time_to_eat; // time it takes for a philosopher to eat
 	long time_to_sleep; // time  a philosopher spends sleeping
-
-
 	int meals_required;
-
 	t_philo *philos;
 	pthread_mutex_t *forks;
-
-
 	pthread_mutex_t print_mutex;
 	pthread_mutex_t death_mutex;
 	int someone_died;
