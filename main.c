@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/22 11:07:50 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/22 22:20:58 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,21 @@ int main(int argc, char **argv)
 		return (printf("[ Your input Not valid ! ]\n"),FAILURE);
 	if (init_data(&data))
 		return (printf("Initialization failed ! \n"), FAILURE);
-	// print_data(&data);
-	i = 0;
-	while (i < data.num_philos)
-	{
-		pthread_create(&data.philos[i].thread, NULL, philo_routine, &data.philos[i]);
-		i++;
-	}
-	pthread_create(&monitor_thread, NULL, (void *)monitor, &data);
-	i = 0;
-	while (i < data.num_philos)
-		pthread_join(data.philos[i++].thread, NULL);
-	pthread_join(monitor_thread, NULL);
 	print_data(&data);
 	cleanup(&data);
 	return (SUCCESS);
+	// i = 0;
+	// while (i < data.num_philos)
+	// {
+	// 	pthread_create(&data.philos[i].thread, NULL, philo_routine, &data.philos[i]);
+	// 	i++;
+	// }
+	// pthread_create(&monitor_thread, NULL, (void *)monitor, &data);
+	// i = 0;
+	// while (i < data.num_philos)
+	// 	pthread_join(data.philos[i++].thread, NULL);
+	// pthread_join(monitor_thread, NULL);
+	// // print_data(&data);
 }
 
 // ./philo 5 800 200 200 7
