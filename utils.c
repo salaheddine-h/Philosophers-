@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:01:18 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/20 16:31:26 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/21 13:25:37 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int is_valid_number(const char *str)
 }
 void print_data(t_data *data)
 {
-    printf(RED_BG_WHITE_TXT "Spam : Run Function Print_data\n\n" RESET_COLOR);
+    printf(RED "Spam : Run Function Print_data\n\n" RESET_COLOR);
     printf(GREEN_TXT "Philos: %d\n" RESET_COLOR, data->num_philos);
     printf(GREEN_TXT  "Die:    %ld\n" RESET_COLOR, data->time_to_die);
     printf(GREEN_TXT "Eat:    %ld\n" RESET_COLOR, data->time_to_eat);
     printf(GREEN_TXT  "Sleep:  %ld\n" RESET_COLOR, data->time_to_sleep);
     printf(GREEN_TXT "Meals:  %d\n\n" RESET_COLOR, data->meals_required);
-    printf(RED_BG_WHITE_TXT "Spam : Close Function Print_data\n" RESET_COLOR);
+    printf(RED "Spam : Close Function Print_data\n" RESET_COLOR);
 }
 
 int	ft_atoi_safe(const char *str, long *out)

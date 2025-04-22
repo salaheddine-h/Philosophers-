@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/20 19:00:22 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/21 13:25:58 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 #define FAILURE 1
 
 // Setup colors
-
-#define RED_BG_WHITE_TXT "\033[1;37;41m"
+#define RED "\033[1;37;41m"
 #define GREEN_TXT "\033[1;32m"
 #define RESET_COLOR "\033[0m"
 
