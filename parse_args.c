@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:31:34 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/22 11:06:44 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/24 13:32:47 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,31 +20,28 @@ int	check_args_validity(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-	    printf("argv[%d] = %s\n", i, argv[1]);
-		if (is_valid_number(argv[i]) == 0)
-			return (printf("spama return 1 (check_args_validity)\n"), 0);
+	    // printf("argv[%d] = %s\n", i, argv[i]);
+		if (is_valid_number(argv[i]) == SUCCESS)
+			return (SUCCESS);
 		i++;
 	}
-	return (1);
+	return (FAILURE);
 }
 int	convert_args_to_data(int argc, char **argv, t_data *data)
 {
 	long	tmp;
 
-	// printf("argv[1] = %s\n", argv[1]);
-	if (ft_atoi_safe(argv[1], &tmp) == 0 || tmp <= 0)
-		return (SUCCESS);
-	// printf("%ld\n", tmp);
-	// printf("spaam22\n");
+	if (ft_atoi_safe(argv[1], &tmp) == SUCCESS || tmp <= 0)
+		return (0);
 	data->num_philos = tmp;
 	if (ft_atoi_safe(argv[2], &tmp) == SUCCESS || tmp < 0)
-		return (SUCCESS);
+		return (0);
 	data->time_to_die = tmp;
 	if (ft_atoi_safe(argv[3], &tmp) == SUCCESS || tmp < 0)
-		return (SUCCESS);
+		return (0);
 	data->time_to_eat = tmp;
 	if (ft_atoi_safe(argv[4], &tmp) == SUCCESS || tmp < 0)
-		return (SUCCESS);
+		return (0);
 	data->time_to_sleep = tmp;
 	data->meals_required = -1;
 	if (argc == 6)
@@ -53,13 +50,13 @@ int	convert_args_to_data(int argc, char **argv, t_data *data)
 			return (SUCCESS);
 		data->meals_required = tmp;
 	}
-	// printf("spaam222\n");
 	return (FAILURE);
 }
+
 int	parse_args(int argc, char **argv, t_data *data) // 1 
 {
-	// if (check_args_validity(argc, argv) == SUCCESS)
-	// 	return (FAILURE);
+	if (check_args_validity(argc, argv) == SUCCESS)
+		return (FAILURE);
 	if (convert_args_to_data(argc, argv, data) == SUCCESS)
 		return (FAILURE);
 	return (SUCCESS);
