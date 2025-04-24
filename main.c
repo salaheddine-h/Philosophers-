@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 	t_data data;
 	pthread_t monitor_thread;
 	int i;
-
+	
     if (argc != 5 && argc != 6) // ndarbo liya chi clr hmaar aykon hssn (ERROR)
 		return (printf("\033[1;37;41mIncorrect number of arguments ! [ You need just 5 arguments ]\n\033[0m") , SUCCESS);
 	ft_memset(&data, 0, sizeof(t_data));

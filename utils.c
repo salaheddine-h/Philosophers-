@@ -28,12 +28,13 @@ int is_valid_number(const char *str)
 }
 void print_data(t_data *data)
 {
-    printf(RED "Spam : Run Function Print_data\n\n" RESET_COLOR);
+    printf(RED "SSpam  : Run Function Print_data\n\n" RESET_COLOR);
     printf(GREEN_TXT "Philos: %d\n" RESET_COLOR, data->num_philos);
     printf(GREEN_TXT  "Die:    %ld\n" RESET_COLOR, data->time_to_die);
     printf(GREEN_TXT "Eat:    %ld\n" RESET_COLOR, data->time_to_eat);
     printf(GREEN_TXT  "Sleep:  %ld\n" RESET_COLOR, data->time_to_sleep);
-    printf(GREEN_TXT "Meals:  %d\n\n" RESET_COLOR, data->meals_required);
+    if (data->meals_required != -1)
+        printf(GREEN_TXT "Meals:  %d\n\n" RESET_COLOR, data->meals_required);
     printf(RED "Spam : Close Function Print_data\n" RESET_COLOR);
 }
 
