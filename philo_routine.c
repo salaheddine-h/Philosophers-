@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:33:49 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/22 22:19:15 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/24 14:17:07 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void *philo_routine(void *arg)
 {
     t_philo *philo = (t_philo *)arg;
     // if (philo->id % 2 == 0) // Even IDs wait to avoid deadlock
-        // precise_sleep(10);
+    //     precise_sleep(10);
     while (1)
     {
         pthread_mutex_lock(&philo->data->death_mutex);
