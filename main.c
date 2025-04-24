@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/22 22:20:58 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/24 13:44:00 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int main(int argc, char **argv)
 {
 	t_data data;
-	pthread_t monitor_thread;
-	int i;
+	// pthread_t monitor_thread;
+	// int i;
 	
     if (argc != 5 && argc != 6) // ndarbo liya chi clr hmaar aykon hssn (ERROR)
 		return (printf("\033[1;37;41mIncorrect number of arguments ! [ You need just 5 arguments ]\n\033[0m") , SUCCESS);
