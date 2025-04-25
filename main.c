@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/24 14:20:55 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/25 20:59:34 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ int main(int argc, char **argv)
 	t_data data;
 	pthread_t monitor_thread;
 	int i;
-	
-    if (argc != 5 && argc != 6) // ndarbo liya chi clr hmaar aykon hssn (ERROR)
+
+  if (argc != 5 && argc != 6)
 		return (printf("\033[1;37;41mIncorrect number of arguments ! [ You need just 5 arguments ]\n\033[0m") , SUCCESS);
 	ft_memset(&data, 0, sizeof(t_data));
 	if (parse_args(argc, argv, &data))
 		return (printf("[ Your input Not valid ! ]\n"),FAILURE);
 	if (init_data(&data))
 		return (printf("Initialization failed ! \n"), FAILURE);
-	print_data(&data);
+	// print_data(&data);
 	i = 0;
 	while (i < data.num_philos)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:01:18 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/24 13:30:25 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/25 21:07:35 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,22 @@
 
 int is_valid_number(const char *str)
 {
-	// printf("spaam valid_number\n");
 	int i = 0;
 
 	if (!str || str[0] == '\0')
-		return (0);
+		return (FAILURE);
+	// if(str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+	// 	return(FAILURE);
 	if(str[i] == '+')
 		i++;
 	while (str[i])
 	{
+		// printf("string : %d\n", str[i]);
 		if (str[i] < '0' || str[i] > '9')
-			return (0);
+			return (FAILURE);
 		i++;
 	}
-	// printf("lst 00000 \n");
-	return (1);
+	return (SUCCESS);
 }
 void print_data(t_data *data)
 {
@@ -48,18 +49,18 @@ int	ft_atoi_safe(const char *str, long *out)
 	long	result = 0;
 
 	if (!str || str[0] == '\0')
-		return (SUCCESS);
+		return (FAILURE);
 	if(str[i] == '+')
 		i++;
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
-			return (SUCCESS);
+			return (FAILURE);
 		result = result * 10 + (str[i] - '0');
 		if (result > 2147483647)
-			return (SUCCESS);
+			return (FAILURE);
 		i++;
 	}
 	*out = result;
-	return (FAILURE);
+	return (SUCCESS);
 }

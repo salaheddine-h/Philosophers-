@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/21 13:25:58 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/25 20:51:48 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,5 @@ void *philo_routine(void *arg);
 void monitor(t_data *data);
 long get_time(void);
 int	ft_atoi_safe(const char *str, long *out);
-
+void precise_sleep(long ms);
 #endif
