@@ -6,7 +6,7 @@
 /*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/25 20:59:34 by salah            ###   ########.fr       */
+/*   Updated: 2025/04/25 21:09:43 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int main(int argc, char **argv)
 	while (i < data.num_philos)
 		pthread_join(data.philos[i++].thread, NULL);
 	pthread_join(monitor_thread, NULL);
-	// print_data(&data);
 	cleanup(&data);
 	return (SUCCESS);
 }
