@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:53:50 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/20 19:06:25 by salhali          ###   ########.fr       */
+/*   Updated: 2025/04/26 18:20:23 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 void monitor(t_data *data)
 {
     int i;
+    // t_philo philo;
     while (1)
     {
-        for (i = 0; i < data->num_philos; i++)
+        i = 0;
+        while (i < data->num_philos)
         {
             pthread_mutex_lock(&data->death_mutex);
             if (get_time() - data->philos[i].last_meal >
@@ -29,17 +31,19 @@ void monitor(t_data *data)
                 return;
             }
             pthread_mutex_unlock(&data->death_mutex);
+            i++;
         }
         if (data->meals_required > 0)
         {
             int all_ate = 1;
-            for (i = 0; i < data->num_philos; i++)
+            while (i < data->num_philos)
             {
                 if (data->philos[i].meals_eaten < data->meals_required)
                 {
                     all_ate = 0;
                     break;
                 }
+                i++;
             }
             if (all_ate)
             {

@@ -6,7 +6,7 @@
 /*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/25 21:09:43 by salah            ###   ########.fr       */
+/*   Updated: 2025/04/26 17:58:26 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int main(int argc, char **argv)
 		return (printf("[ Your input Not valid ! ]\n"),FAILURE);
 	if (init_data(&data))
 		return (printf("Initialization failed ! \n"), FAILURE);
-	// print_data(&data);
 	i = 0;
 	while (i < data.num_philos)
 	{
