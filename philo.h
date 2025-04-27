@@ -74,4 +74,15 @@ void monitor(t_data *data);
 long get_time(void);
 int	ft_atoi_safe(const char *str, long *out);
 void precise_sleep(long ms);
+
+
+
+
+
+
+int check_death_or_meal(t_philo *philo);
+void take_forks(t_philo *philo);
+void eat(t_philo *philo);
+void sleep_and_think(t_philo *philo);
+
 #endif
