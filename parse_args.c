@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
+/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:31:34 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/25 21:00:31 by salah            ###   ########.fr       */
+/*   Updated: 2025/05/05 12:40:03 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ int	check_args_validity(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (is_valid_number(argv[i]) == FAILURE) // returns SUCCESS only if all arguments are valid numbers
+		if (is_valid_number(argv[i]) == FAILURE)
 			return (FAILURE);
 		i++;
 	}
 	return (SUCCESS);
 }
-int	convert_args_to_data(int argc, char **argv, t_data *data) // Convert arguments to values and store them in data struct
+
+int	convert_args_to_data(int argc, char **argv, t_data *data)
 {
 	long	tmp;
 
@@ -51,18 +52,9 @@ int	convert_args_to_data(int argc, char **argv, t_data *data) // Convert argumen
 	return (SUCCESS);
 }
 
-// int	parse_args(int argc, char **argv, t_data *data) // 1
-// {
-// 	if (check_args_validity(argc, argv) == SUCCESS)
-// 		return (FAILURE);
-// 	if (convert_args_to_data(argc, argv, data) == SUCCESS)
-// 		return (FAILURE);
-// 	return (SUCCESS);
-// }
-
-
-int parse_args(int argc, char **argv, t_data *data)
+int	parse_args(int argc, char **argv, t_data *data)
 {
+	ft_memset(&data, 0, sizeof(t_data));
 	if (check_args_validity(argc, argv) == FAILURE)
 		return (FAILURE);
 	if (convert_args_to_data(argc, argv, data) == FAILURE)
