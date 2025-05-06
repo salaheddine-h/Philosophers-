@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/05 12:41:41 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/06 13:06:30 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	main(int argc, char **argv)
 	int			i;
 
 	if (argc != 5 && argc != 6)
-		return (printf("Salaheddine : Incorrect number of arguments !"),
-			SUCCESS);
+		return (printf("Incorrect number of arguments !"), SUCCESS);
+	ft_memset(&data, 0, sizeof(t_data));
 	if (parse_args(argc, argv, &data))
-		return (printf("[ Your input Not valid ! ]\n"), FAILURE);
+		return (printf("Your input Not valid !\n"), FAILURE);
 	if (init_data(&data))
-		return (printf("Initialization failed ! \n"), FAILURE);
+		return (printf("Initialization failed !\n"), FAILURE);
 	i = 0;
 	while (i < data.num_philos)
 	{

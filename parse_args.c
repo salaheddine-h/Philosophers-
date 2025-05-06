@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:31:34 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/05 12:40:03 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/06 12:53:37 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	convert_args_to_data(int argc, char **argv, t_data *data)
 
 int	parse_args(int argc, char **argv, t_data *data)
 {
-	ft_memset(&data, 0, sizeof(t_data));
 	if (check_args_validity(argc, argv) == FAILURE)
 		return (FAILURE);
 	if (convert_args_to_data(argc, argv, data) == FAILURE)

@@ -1,3 +1,4 @@
+NAME = philo
 
 CC = cc
 
@@ -8,8 +9,6 @@ SRCS = main.c parse_args.c init_data.c  philo_routine.c  monitor.c  get_time.c p
 OBJS = $(SRCS:.c=.o)
 
 LIBFT = libft/libft.a
-
-NAME = philo
 
 all: $(NAME)
 

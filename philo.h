@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/05 12:42:27 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/06 13:07:14 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,13 @@ typedef struct s_data
 	long			start_time;
 }					t_data;
 
-//----------------------Parsing-------------------------------//
 int					check_args_validity(int argc, char **argv);
 int					convert_args_to_data(int argc, char **argv, t_data *data);
 int					parse_args(int argc, char **argv, t_data *data);
 int					is_valid_number(const char *str);
-//-----------------Spam_data-----------------//
-void				print_data(t_data *data);
+// void				print_data(t_data *data);
 void				print_state(t_philo *philo, char *state);
-//----------------cleanup----------------//
 void				cleanup(t_data *data);
-//----------------------------------------//
 int					init_data(t_data *data);
 void				*philo_routine(void *arg);
 void				monitor(t_data *data);
@@ -74,7 +70,6 @@ int					check_all_ate(t_data *data);
 long				get_time(void);
 int					ft_atoi_safe(const char *str, long *out);
 void				precise_sleep(long ms);
-
 int					check_death_or_meal(t_philo *philo);
 void				take_forks(t_philo *philo);
 void				eat(t_philo *philo);
