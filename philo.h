@@ -6,7 +6,7 @@
 /*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/10 18:23:17 by salah            ###   ########.fr       */
+/*   Updated: 2025/05/10 18:43:47 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ typedef struct s_philo
 	pthread_t		thread; // Thread representing the philosopher
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
-	long			last_meal;
-	int				meals_eaten;
+	long			last_meal; // timestamp akhir mera klaat (ms)
+	int				meals_eaten; // chhal klaat had philo
 	struct s_data	*data;
 }					t_philo;
 
