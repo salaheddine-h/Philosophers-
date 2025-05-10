@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/06 13:07:14 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/10 18:23:17 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ void				precise_sleep(long ms);
 int					check_death_or_meal(t_philo *philo);
 void				take_forks(t_philo *philo);
 void				eat(t_philo *philo);
-void				sleep_and_think(t_philo *philo);
+void				thinking(t_philo *philo);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_time.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:52:45 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/16 13:52:59 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/10 18:03:04 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,4 @@ void	precise_sleep(long ms)
 	while (get_time() - start < ms)
 		usleep(100);
 }
+
