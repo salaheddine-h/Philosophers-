@@ -20,10 +20,10 @@ int	check_death(t_data *data, int i)
 		data->someone_died = 1;
 		pthread_mutex_unlock(&data->death_mutex);
 		print_state(&data->philos[i], "died");
-		return (1);
+		return (FAILURE);
 	}
 	pthread_mutex_unlock(&data->death_mutex);
-	return (0);
+	return (SUCCESS);
 }
 
 int	check_all_ate(t_data *data)

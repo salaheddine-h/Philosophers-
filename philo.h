@@ -34,22 +34,22 @@ typedef struct s_philo
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
 	int				id;
-	long			last_meal;
-	int				meals_eaten;
+	long			last_meal; // l waqt li akher mara kla fiha
+	int				meals_eaten; //  Ch7al mn marra kla
 	struct s_data	*data;
 }					t_philo;
 
 typedef struct s_data
 {
-	int				num_philos;
-	long			time_to_die;
-	long			time_to_eat;
-	long			time_to_sleep;
-	int				meals_required;
+	int				num_philos; // number dyal phhilo
+	long			time_to_die; // W9t (ms) ila m'aklach philosopher ghatmout mn jowa.
+	long			time_to_eat; //  Ch7al khas philosopher bash yakol (ms).
+	long			time_to_sleep; // Ch7al khas yna3s philosopher ba3d l makan (ms).
+	int				meals_required; // re ch7aal mn mera i3awd routine
 	t_philo			*philos;
 	pthread_mutex_t	*forks;
-	pthread_mutex_t	print_mutex;
-	pthread_mutex_t	death_mutex;
+	pthread_mutex_t	print_mutex; // Bash y9der ghira wahed philosopher yprinti f stdout
+	pthread_mutex_t	death_mutex; //  Bash ykon l'accès l someone_died mtznin (thread-safe).
 	int				someone_died;
 	long			start_time;
 }					t_data;
@@ -71,7 +71,7 @@ int					ft_atoi_safe(const char *str, long *out);
 void				precise_sleep(long ms);
 int					check_death_or_meal(t_philo *philo);
 void				take_forks(t_philo *philo);
-void				eat(t_philo *philo);
-void				sleep_and_think(t_philo *philo);
+void				eat_sleeping(t_philo *philo);
+void				thinking(t_philo *philo);
 
 #endif

@@ -12,7 +12,7 @@
 
 #include "philo.h"
 
-void	eat(t_philo *philo)
+void	eat_sleeping(t_philo *philo)
 {
 	print_state(philo, "is eating");
 	pthread_mutex_lock(&philo->data->death_mutex);
@@ -34,13 +34,18 @@ void	take_forks(t_philo *philo)
 	print_state(philo, "has taken a fork right");
 }
 
-void	sleep_and_think(t_philo *philo)
+void	thinking(t_philo *philo)
 {
 	print_state(philo, "is thinking");
 }
 
 int	check_death_or_meal(t_philo *philo)
 {
+    // if(philo->data->someone_died == 1)
+    // {
+    //     printf("someone_died %d\n", philo->data->someone_died);
+    //     return(1);
+    // }
 	pthread_mutex_lock(&philo->data->death_mutex);
 	if (philo->data->someone_died || (philo->data->meals_required > 0
 			&& philo->meals_eaten >= philo->data->meals_required))
@@ -64,9 +69,9 @@ void	*philo_routine(void *arg)
 	{
 		if (check_death_or_meal(philo))
 			break ;
-		sleep_and_think(philo);
 		take_forks(philo);
-		eat(philo);
+		eat_sleeping(philo);
+		thinking(philo);
 	}
 	return (NULL);
 }
