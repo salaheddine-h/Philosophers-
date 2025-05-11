@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/06 13:07:14 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/09 13:59:42 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # define SUCCESS 0
 # define FAILURE 1
 
-// Setup colors
 # define RED "\033[1;37;41m"
 # define GREEN_TXT "\033[1;32m"
 # define RESET_COLOR "\033[0m"
@@ -31,10 +30,10 @@
 
 typedef struct s_philo
 {
-	int				id;
 	pthread_t		thread; // Thread representing the philosopher
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
+	int				id;
 	long			last_meal;
 	int				meals_eaten;
 	struct s_data	*data;
@@ -59,7 +58,7 @@ int					check_args_validity(int argc, char **argv);
 int					convert_args_to_data(int argc, char **argv, t_data *data);
 int					parse_args(int argc, char **argv, t_data *data);
 int					is_valid_number(const char *str);
-// void				print_data(t_data *data);
+void				print_data(t_data *data);
 void				print_state(t_philo *philo, char *state);
 void				cleanup(t_data *data);
 int					init_data(t_data *data);
