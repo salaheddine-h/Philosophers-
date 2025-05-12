@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   philo_routine.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:33:49 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/11 13:25:16 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/12 16:38:23 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-#include <pthread.h>
 
 void	eat_sleeping(t_philo *philo)
 {
@@ -33,10 +32,11 @@ void	take_forks(t_philo *philo)
     {
     	pthread_mutex_lock(philo->right_fork);
     	print_state(philo, "has taken a fork right");
-       	pthread_mutex_lock(philo->left_fork);
+      pthread_mutex_lock(philo->left_fork);
     	print_state(philo, "has taken a fork left");
     }
-    else {
+    else
+		{
     	pthread_mutex_lock(philo->left_fork);
     	print_state(philo, "has taken a fork left");
     	pthread_mutex_lock(philo->right_fork);
@@ -51,11 +51,6 @@ void	thinking(t_philo *philo)
 
 int	check_death_or_meal(t_philo *philo)
 {
-    // if(philo->data->someone_died == 1)
-    // {
-    //     printf("someone_died %d\n", philo->data->someone_died);
-    //     return(1);
-    // }
 	pthread_mutex_lock(&philo->data->death_mutex);
 	if (philo->data->someone_died || (philo->data->meals_required > 0
 			&& philo->meals_eaten >= philo->data->meals_required))

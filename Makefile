@@ -2,7 +2,7 @@ NAME = philo
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror  -fsanitize=thread -g
+CFLAGS = -Wall -Wextra -Werror  #-fsanitize=thread -g
 
 SRCS = main.c parse_args.c init_data.c  philo_routine.c  monitor.c  get_time.c print_state.c cleanup.c utils.c
 
