@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <pthread.h>
 
 void	eat_sleeping(t_philo *philo)
 {
@@ -28,10 +29,19 @@ void	eat_sleeping(t_philo *philo)
 
 void	take_forks(t_philo *philo)
 {
-	pthread_mutex_lock(philo->left_fork);
-	print_state(philo, "has taken a fork left");
-	pthread_mutex_lock(philo->right_fork);
-	print_state(philo, "has taken a fork right");
+    if (philo->id % 2 == 0)
+    {
+    	pthread_mutex_lock(philo->right_fork);
+    	print_state(philo, "has taken a fork right");
+       	pthread_mutex_lock(philo->left_fork);
+    	print_state(philo, "has taken a fork left");
+    }
+    else {
+    	pthread_mutex_lock(philo->left_fork);
+    	print_state(philo, "has taken a fork left");
+    	pthread_mutex_lock(philo->right_fork);
+    	print_state(philo, "has taken a fork right");
+    }
 }
 
 void	thinking(t_philo *philo)
@@ -62,7 +72,9 @@ void	*philo_routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
+	pthread_mutex_lock(&philo->data->death_mutex);
 	philo->last_meal = get_time();
+	pthread_mutex_unlock(&philo->data->death_mutex);
 	if (philo->id % 2 == 0)
 		precise_sleep(10);
 	while (1)
