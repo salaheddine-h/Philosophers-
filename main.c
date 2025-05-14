@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/11 13:27:29 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/14 18:55:07 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 	i = 0;
 	while (i < data.num_philos)
 	{
+		if(data.num_philos == 1)
+			pthread_create(&data.philos[0].thread,  NULL , &philo_routine_single, &data.philos[0]);
 		pthread_create(&data.philos[i].thread, NULL, philo_routine,
 			&data.philos[i]);
 		i++;

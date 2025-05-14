@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_routine.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
+/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:33:49 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/12 16:38:23 by salah            ###   ########.fr       */
+/*   Updated: 2025/05/14 18:47:12 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void	take_forks(t_philo *philo)
     if (philo->id % 2 == 0)
     {
     	pthread_mutex_lock(philo->right_fork);
-    	print_state(philo, "has taken a fork right");
-      pthread_mutex_lock(philo->left_fork);
+    	print_state(philo, "has taken a fork right [1]");
+    	pthread_mutex_lock(philo->left_fork);
     	print_state(philo, "has taken a fork left");
     }
     else
-		{
+	{
     	pthread_mutex_lock(philo->left_fork);
-    	print_state(philo, "has taken a fork left");
+    	print_state(philo, "has taken a fork left [2]");
     	pthread_mutex_lock(philo->right_fork);
     	print_state(philo, "has taken a fork right");
     }
@@ -70,6 +70,8 @@ void	*philo_routine(void *arg)
 	pthread_mutex_lock(&philo->data->death_mutex);
 	philo->last_meal = get_time();
 	pthread_mutex_unlock(&philo->data->death_mutex);
+	if(philo->data->num_philos == 1)
+		pthread_create(&philo[0].thread, NULL, &philo_routine_single, &philo->data);
 	if (philo->id % 2 == 0)
 		precise_sleep(10);
 	while (1)
@@ -79,6 +81,7 @@ void	*philo_routine(void *arg)
 		take_forks(philo);
 		eat_sleeping(philo);
 		thinking(philo);
+		// usleep(10);
 	}
 	return (NULL);
 }

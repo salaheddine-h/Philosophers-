@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:01:18 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/07 19:43:23 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/13 15:06:24 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,38 @@ int	ft_atoi_safe(const char *str, long *out)
 	}
 	*out = result;
 	return (SUCCESS);
+}
+
+int	ft_strcmp(const char *dest, const char *src)
+{
+	size_t			i;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
+
+	i = 0;
+	ptr1 = (unsigned char *)dest;
+	ptr2 = (unsigned char *)src;
+	
+	while (src[i] != '\0' && dest[i] != '\0')
+	{
+		if (src[i] != dest[i])
+			return (ptr1[i] - ptr2[i]);
+		i++; 
+	}
+	return (ptr1[i] - ptr2[i]);
+}
+
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*ptr;
+
+	i = 0;
+	ptr = (unsigned char *)s;
+	while (i < n)
+	{
+		ptr[i] = (unsigned char)c;
+		i++;
+	}
+	return (s);
 }

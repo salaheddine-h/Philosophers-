@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
+/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:53:50 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/12 16:36:24 by salah            ###   ########.fr       */
+/*   Updated: 2025/05/12 17:59:51 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	check_death(t_data *data, int i)
 {
 	pthread_mutex_lock(&data->death_mutex);
-	if (get_time() - data->philos[i].last_meal >= data->time_to_die)
+	if (get_time() - data->philos[i].last_meal > data->time_to_die)
 	{
 		data->someone_died = 1;
 		pthread_mutex_unlock(&data->death_mutex);

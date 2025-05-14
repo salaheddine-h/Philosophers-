@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/09 13:59:42 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/14 18:45:44 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define GREEN_TXT "\033[1;32m"
 # define RESET_COLOR "\033[0m"
 
-# include "./libft/libft.h" // library ibft all my function
+// # include "./libft/libft.h" // library ibft all my function
 # include <limits.h>        // for INT_MAX / INT_MIN
 # include <pthread.h>       // For thread management
 # include <stdio.h>         // For standard input/output
@@ -73,5 +73,8 @@ int					check_death_or_meal(t_philo *philo);
 void				take_forks(t_philo *philo);
 void				eat_sleeping(t_philo *philo);
 void				thinking(t_philo *philo);
+int					ft_strcmp(const char *dest, const char *src);
+void				*ft_memset(void *s, int c, size_t n);
+void    			*philo_routine_single(void *arg);
 
 #endif

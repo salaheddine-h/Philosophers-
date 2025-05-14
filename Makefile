@@ -2,30 +2,26 @@ NAME = philo
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror  #-fsanitize=thread -g
+CFLAGS = -Wall -Wextra -Werror  -fsanitize=thread -g
 
-SRCS = main.c parse_args.c init_data.c  philo_routine.c  monitor.c  get_time.c print_state.c cleanup.c utils.c
+SRCS = main.c parse_args.c init_data.c  philo_routine.c  monitor.c  get_time.c print_state.c cleanup.c utils.c philo_routine_single.c 
 
 OBJS = $(SRCS:.c=.o)
 
-LIBFT = libft/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(LIBFT) :
-	make -s -C libft
-	make bonus -s -C libft
+# $(LIBFT) :
+# 	make -s -C libft
 
 clean:
 	rm -f $(NAME)
-	make clean -C libft
 
 fclean: clean
 	rm -f $(NAME) $(OBJS)
-	make fclean -C libft
 
 re: fclean all
 

@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   philo_routine_single.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 12:37:13 by salhali           #+#    #+#             */
-/*   Updated: 2024/11/04 17:42:33 by salhali          ###   ########.fr       */
+/*   Created: 2025/05/14 18:38:02 by salhali           #+#    #+#             */
+/*   Updated: 2025/05/14 18:58:24 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "philo.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void    *philo_routine_single(void *arg)
 {
-	long long	nbr;
+    t_philo *philo;
+    
+    philo = (t_philo *)arg;
 
-	nbr = n;
-	if (nbr < 0)
-	{
-		ft_putchar_fd('-', fd);
-		nbr = -nbr;
-	}
-	if (nbr > 9)
-	{
-		ft_putnbr_fd(nbr / 10, fd);
-		ft_putnbr_fd(nbr % 10, fd);
-	}
-	else
-		ft_putchar_fd(nbr + 48, fd);
+    pthread_mutex_lock(philo->left_fork);
+    print_state(philo, "has taken a fork left");
+    pthread_mutex_lock(&philo->data->death_mutex);
+    print_state(philo, "died");
+    pthread_mutex_unlock(&philo->data->death_mutex);
+    return (NULL);
 }
