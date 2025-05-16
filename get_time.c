@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:52:45 by salhali           #+#    #+#             */
-/*   Updated: 2025/04/16 13:52:59 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/16 18:05:12 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	precise_sleep(long ms)
 	long	start;
 
 	start = get_time();
-	while (get_time() - start < ms)
+	while (get_time() - start <= ms)
 		usleep(100);
 }

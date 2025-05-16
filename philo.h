@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/14 18:45:44 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/16 18:32:59 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ void				eat_sleeping(t_philo *philo);
 void				thinking(t_philo *philo);
 int					ft_strcmp(const char *dest, const char *src);
 void				*ft_memset(void *s, int c, size_t n);
-void    			*philo_routine_single(void *arg);
+// void    			*philo_routine_single(void *arg);
 
 #endif

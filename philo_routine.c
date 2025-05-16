@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:33:49 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/15 19:48:58 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/16 18:42:54 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,14 @@ void	*philo_routine(void *arg)
 	pthread_mutex_lock(&philo->data->death_mutex);
 	philo->last_meal = get_time();
 	pthread_mutex_unlock(&philo->data->death_mutex);
-	if (philo->id % 2 == 0)
-		precise_sleep(10);
+	// if (philo->id % 2 == 0)
+	// 	precise_sleep(10);
+	if (philo->data->num_philos == 1)
+	{
+    	print_state(philo, "has taken a fork");
+		precise_sleep(philo->data->time_to_die); // 120 just test
+		return NULL;
+	}
 	while (1)
 	{
 		if (check_death_or_meal(philo))

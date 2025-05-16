@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:16:01 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/15 18:50:50 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/16 18:32:40 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,16 @@ int	main(int argc, char **argv)
 	if (init_data(&data))
 		return (printf("Initialization failed !\n"), FAILURE);
 	i = 0;
+	// if(data.num_philos == 1)
+	// {
+	// 	pthread_create(&data.philos[i].thread, NULL, philo_routine_single,
+	// 		&data.philos[i]);
+	// 	if(&philo_routine_single == NULL)
+	// 	{
+	// 		cleanup(&data);
+	// 		return(SUCCESS);
+	// 	}
+	// }
 	while (i < data.num_philos)
 	{
 		pthread_create(&data.philos[i].thread, NULL, philo_routine,
