@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:33:49 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/16 18:42:54 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/17 20:05:33 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,20 @@ void	eat_sleeping(t_philo *philo)
 
 void	take_forks(t_philo *philo)
 {
-    if (philo->id % 2 == 0)
-    {
-    	pthread_mutex_lock(philo->right_fork);
-    	print_state(philo, "has taken a fork");
-    	pthread_mutex_lock(philo->left_fork);
-    	print_state(philo, "has taken a fork");
-    }
-    else
+	if (philo->id % 2 == 0)
 	{
-    	pthread_mutex_lock(philo->left_fork);
-    	print_state(philo, "has taken a fork");
-    	pthread_mutex_lock(philo->right_fork);
-    	print_state(philo, "has taken a fork");
-    }
+		pthread_mutex_lock(philo->right_fork);
+		print_state(philo, "has taken a fork");
+		pthread_mutex_lock(philo->left_fork);
+		print_state(philo, "has taken a fork");
+	}
+	else
+	{
+		pthread_mutex_lock(philo->left_fork);
+		print_state(philo, "has taken a fork");
+		pthread_mutex_lock(philo->right_fork);
+		print_state(philo, "has taken a fork");
+	}
 }
 
 void	thinking(t_philo *philo)
@@ -74,9 +74,9 @@ void	*philo_routine(void *arg)
 		precise_sleep(10);
 	if (philo->data->num_philos == 1)
 	{
-    	print_state(philo, "has taken a fork");
-		precise_sleep(philo->data->time_to_die); // 120 just test
-		return NULL;
+		print_state(philo, "has taken a fork");
+		precise_sleep(philo->data->time_to_die);
+		return (NULL);
 	}
 	while (1)
 	{

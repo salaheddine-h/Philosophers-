@@ -33,13 +33,12 @@ int	check_all_ate(t_data *data)
 
 	all_ate = 1;
 	i = 0;
-
 	while (i < data->num_philos)
 	{
-	    pthread_mutex_lock(&data->death_mutex);
+		pthread_mutex_lock(&data->death_mutex);
 		if (data->philos[i].meals_eaten <= data->meals_required)
 		{
-		    pthread_mutex_unlock(&data->death_mutex);
+			pthread_mutex_unlock(&data->death_mutex);
 			all_ate = 0;
 			break ;
 		}

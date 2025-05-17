@@ -75,7 +75,6 @@ int	ft_strcmp(const char *dest, const char *src)
 	i = 0;
 	ptr1 = (unsigned char *)dest;
 	ptr2 = (unsigned char *)src;
-
 	while (src[i] != '\0' && dest[i] != '\0')
 	{
 		if (src[i] != dest[i])

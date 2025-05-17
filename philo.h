@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:20:29 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/16 18:32:59 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/17 20:07:23 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,40 +16,42 @@
 # define SUCCESS 0
 # define FAILURE 1
 
-# define RED "\033[1;37;41m"
-# define GREEN_TXT "\033[1;32m"
-# define RESET_COLOR "\033[0m"
+// # define RED "\033[1;37;41m"
+// # define GREEN_TXT "\033[1;32m"
+// # define RESET_COLOR "\033[0m"
 
 // # include "./libft/libft.h" // library ibft all my function
-# include <limits.h>        // for INT_MAX / INT_MIN
-# include <pthread.h>       // For thread management
-# include <stdio.h>         // For standard input/output
-# include <stdlib.h>        // memory allocation
-# include <sys/time.h>      // For timing functions
-# include <unistd.h>        // For POSIX operating system API access
+# include <limits.h>   // for INT_MAX / INT_MIN
+# include <pthread.h>  // For thread management
+# include <stdio.h>    // For standard input/output
+# include <stdlib.h>   // memory allocation
+# include <sys/time.h> // For timing functions
+# include <unistd.h>   // For POSIX operating system API access
 
 typedef struct s_philo
 {
-	pthread_t		thread; // Thread representing the philosopher
+	pthread_t		thread;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
 	int				id;
-	long			last_meal; // l waqt li akher mara kla fiha
-	int				meals_eaten; //  Ch7al mn marra kla
+	long	last_meal;  // l waqt li akher mara kla fiha
+	int meals_eaten; //  Ch7al mn marra kla
 	struct s_data	*data;
 }					t_philo;
 
 typedef struct s_data
 {
-	int				num_philos; // number dyal phhilo
-	long			time_to_die; // W9t (ms) ila m'aklach philosopher ghatmout mn jowa.
-	long			time_to_eat; //  Ch7al khas philosopher bash yakol (ms).
-	long			time_to_sleep; // Ch7al khas yna3s philosopher ba3d l makan (ms).
-	int				meals_required; // re ch7aal mn mera i3awd routine
+	int num_philos;     // number dyal phhilo
+	long time_to_die;   // W9t (ms) ila m'aklach philosopher ghatmout mn jowa.
+	long time_to_eat;   //  Ch7al khas philosopher bash yakol (ms).
+	long time_to_sleep; // Ch7al khas yna3s philosopher ba3d l makan (ms).
+	int meals_required; // re ch7aal mn mera i3awd routine
 	t_philo			*philos;
 	pthread_mutex_t	*forks;
-	pthread_mutex_t	print_mutex; // Bash y9der ghira wahed philosopher yprinti f stdout
-	pthread_mutex_t	death_mutex; //  Bash ykon l'accès l t_philo mtznin (thread-safe).
+	pthread_mutex_t	print_mutex;
+	// Bash y9der ghira wahed philosopher yprinti f stdout
+	pthread_mutex_t	death_mutex;
+	//  Bash ykon l'accès l t_philo mtznin (thread-safe).
 	int				someone_died;
 	long			start_time;
 }					t_data;
@@ -58,7 +60,6 @@ int					check_args_validity(int argc, char **argv);
 int					convert_args_to_data(int argc, char **argv, t_data *data);
 int					parse_args(int argc, char **argv, t_data *data);
 int					is_valid_number(const char *str);
-// void				print_data(t_data *data);
 void				print_state(t_philo *philo, char *state);
 void				cleanup(t_data *data);
 int					init_data(t_data *data);
