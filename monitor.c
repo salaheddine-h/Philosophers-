@@ -59,14 +59,11 @@ void	monitor(t_data *data)
 				return ;
 			i++;
 		}
-		pthread_mutex_lock(&data->death_mutex);
 		if (data->meals_required > 0 && check_all_ate(data) != 0)
 		{
 			data->someone_died = 1;
-			pthread_mutex_unlock(&data->death_mutex);
 			return ;
 		}
-		pthread_mutex_unlock(&data->death_mutex);
 		usleep(1000);
 	}
 }
