@@ -25,6 +25,6 @@ void	precise_sleep(long ms)
 	long	start;
 
 	start = get_time();
-	while (get_time() - start <= ms)
+	while (get_time() - start < ms)
 		usleep(100);
 }

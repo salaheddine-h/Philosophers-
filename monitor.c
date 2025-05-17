@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <pthread.h>
 
 int	check_death(t_data *data, int i)
 {
@@ -35,7 +36,7 @@ int	check_all_ate(t_data *data)
 	i = 0;
 	while (i < data->num_philos)
 	{
-		if (data->philos[i].meals_eaten < data->meals_required)
+		if (data->philos[i].meals_eaten <= data->meals_required)
 		{
 			all_ate = 0;
 			break ;
@@ -58,13 +59,14 @@ void	monitor(t_data *data)
 				return ;
 			i++;
 		}
-		if (data->meals_required > 0 && check_all_ate(data))
+		pthread_mutex_lock(&data->death_mutex);
+		if (data->meals_required > 0 && check_all_ate(data) != 0)
 		{
-			pthread_mutex_lock(&data->death_mutex);
 			data->someone_died = 1;
 			pthread_mutex_unlock(&data->death_mutex);
 			return ;
 		}
+		pthread_mutex_unlock(&data->death_mutex);
 		usleep(1000);
 	}
 }

@@ -26,16 +26,6 @@ int	main(int argc, char **argv)
 	if (init_data(&data))
 		return (printf("Initialization failed !\n"), FAILURE);
 	i = 0;
-	// if(data.num_philos == 1)
-	// {
-	// 	pthread_create(&data.philos[i].thread, NULL, philo_routine_single,
-	// 		&data.philos[i]);
-	// 	if(&philo_routine_single == NULL)
-	// 	{
-	// 		cleanup(&data);
-	// 		return(SUCCESS);
-	// 	}
-	// }
 	while (i < data.num_philos)
 	{
 		pthread_create(&data.philos[i].thread, NULL, philo_routine,

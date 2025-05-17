@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <pthread.h>
 
 void	eat_sleeping(t_philo *philo)
 {
@@ -47,7 +48,7 @@ void	take_forks(t_philo *philo)
 void	thinking(t_philo *philo)
 {
 	// long long result;
-	
+
 	// result = philo->data->time_to_eat + philo->data->time_to_sleep ;
 	// if(result > philo->data->time_to_die)
 		print_state(philo, "is thinking");
@@ -74,8 +75,8 @@ void	*philo_routine(void *arg)
 	pthread_mutex_lock(&philo->data->death_mutex);
 	philo->last_meal = get_time();
 	pthread_mutex_unlock(&philo->data->death_mutex);
-	// if (philo->id % 2 == 0)
-	// 	precise_sleep(10);
+	if (philo->id % 2 == 0)
+		precise_sleep(10);
 	if (philo->data->num_philos == 1)
 	{
     	print_state(philo, "has taken a fork");
