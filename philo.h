@@ -49,7 +49,7 @@ typedef struct s_data
 	t_philo			*philos;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	print_mutex; // Bash y9der ghira wahed philosopher yprinti f stdout
-	pthread_mutex_t	death_mutex; //  Bash ykon l'accès l someone_died mtznin (thread-safe).
+	pthread_mutex_t	death_mutex; //  Bash ykon l'accès l t_philo mtznin (thread-safe).
 	int				someone_died;
 	long			start_time;
 }					t_data;
@@ -58,7 +58,7 @@ int					check_args_validity(int argc, char **argv);
 int					convert_args_to_data(int argc, char **argv, t_data *data);
 int					parse_args(int argc, char **argv, t_data *data);
 int					is_valid_number(const char *str);
-void				print_data(t_data *data);
+// void				print_data(t_data *data);
 void				print_state(t_philo *philo, char *state);
 void				cleanup(t_data *data);
 int					init_data(t_data *data);
@@ -75,6 +75,5 @@ void				eat_sleeping(t_philo *philo);
 void				thinking(t_philo *philo);
 int					ft_strcmp(const char *dest, const char *src);
 void				*ft_memset(void *s, int c, size_t n);
-// void    			*philo_routine_single(void *arg);
 
 #endif

@@ -4,7 +4,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror  -fsanitize=thread -g
 
-SRCS = main.c parse_args.c init_data.c  philo_routine.c  monitor.c  get_time.c print_state.c cleanup.c utils.c philo_routine_single.c 
+SRCS = main.c parse_args.c init_data.c  philo_routine.c  monitor.c  get_time.c print_state.c cleanup.c utils.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -13,9 +13,6 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-
-# $(LIBFT) :
-# 	make -s -C libft
 
 clean:
 	rm -f $(OBJS)

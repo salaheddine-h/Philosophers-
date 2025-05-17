@@ -11,15 +11,14 @@
 /* ************************************************************************** */
 
 #include "philo.h"
-#include <pthread.h>
 
 void	eat_sleeping(t_philo *philo)
 {
 	print_state(philo, "is eating");
 	pthread_mutex_lock(&philo->data->death_mutex);
 	philo->last_meal = get_time();
-	pthread_mutex_unlock(&philo->data->death_mutex);
 	philo->meals_eaten++;
+	pthread_mutex_unlock(&philo->data->death_mutex);
 	precise_sleep(philo->data->time_to_eat);
 	pthread_mutex_unlock(philo->left_fork);
 	pthread_mutex_unlock(philo->right_fork);
@@ -47,11 +46,7 @@ void	take_forks(t_philo *philo)
 
 void	thinking(t_philo *philo)
 {
-	// long long result;
-
-	// result = philo->data->time_to_eat + philo->data->time_to_sleep ;
-	// if(result > philo->data->time_to_die)
-		print_state(philo, "is thinking");
+	print_state(philo, "is thinking");
 }
 
 int	check_death_or_meal(t_philo *philo)
