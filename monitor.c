@@ -52,7 +52,6 @@ void	monitor(t_data *data)
 {
 	int	i;
 
-	printf(" monitor Philo %d: started\n", data->philos[0].id);// debug
 	while (1)
 	{
 		i = 0;
