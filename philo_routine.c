@@ -67,6 +67,7 @@ void	*philo_routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
+	printf(" philo_routine Philo %d: started\n", philo->id);// debug
 	pthread_mutex_lock(&philo->data->death_mutex);
 	philo->last_meal = get_time();
 	pthread_mutex_unlock(&philo->data->death_mutex);
