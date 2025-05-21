@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:53:50 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/15 19:02:05 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/21 12:32:16 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ void	monitor(t_data *data)
 		}
 		if (data->meals_required > 0 && check_all_ate(data))
 		{
+			pthread_mutex_lock(&data->death_mutex);
 			data->someone_died = 1;
+			pthread_mutex_unlock(&data->death_mutex);
 			return ;
 		}
 		usleep(1000);

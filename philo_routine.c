@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:33:49 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/17 20:05:33 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/21 12:50:12 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void	*philo_routine(void *arg)
 		take_forks(philo);
 		eat_sleeping(philo);
 		thinking(philo);
-		// usleep(10);
 	}
 	return (NULL);
 }
