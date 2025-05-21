@@ -70,8 +70,8 @@ void	*philo_routine(void *arg)
 	pthread_mutex_lock(&philo->data->death_mutex);
 	philo->last_meal = get_time();
 	pthread_mutex_unlock(&philo->data->death_mutex);
-	// if (philo->id % 2 == 0)
-	// 	precise_sleep(10);
+	if (philo->id % 2 == 0)
+		precise_sleep(10);
 	if (philo->data->num_philos == 1)
 	{
 		print_state(philo, "has taken a fork");
@@ -85,6 +85,7 @@ void	*philo_routine(void *arg)
 		take_forks(philo);
 		eat_sleeping(philo);
 		thinking(philo);
+		// usleep(10);
 	}
 	return (NULL);
 }
