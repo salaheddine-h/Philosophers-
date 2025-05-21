@@ -40,7 +40,6 @@ void precise_sleep(long ms)
 		now = get_time();
 		if (now - start >= ms)
 			break;
-		usleep(1000); // sleep 1ms instead of 0.1ms
+		usleep(100); // sleep 1ms instead of 0.1ms
 	}
 }
-
