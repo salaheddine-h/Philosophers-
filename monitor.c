@@ -52,6 +52,9 @@ void	monitor(t_data *data)
 {
 	int	i;
 
+	pthread_mutex_lock(&data->death_mutex);
+	data->philos->last_meal = get_time();
+	pthread_mutex_unlock(&data->death_mutex);
 	while (1)
 	{
 		i = 0;
