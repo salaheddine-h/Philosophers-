@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:53:50 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/21 12:32:16 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/22 18:15:55 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	monitor(t_data *data)
 	while (1)
 	{
 		i = 0;
+		
 		while (i < data->num_philos)
 		{
 			if (check_death(data, i))

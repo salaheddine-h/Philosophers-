@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_routine.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:33:49 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/21 12:50:12 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/22 18:20:58 by salah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,13 @@ void	*philo_routine(void *arg)
 	pthread_mutex_lock(&philo->data->death_mutex);
 	philo->last_meal = get_time();
 	pthread_mutex_unlock(&philo->data->death_mutex);
-	if (philo->id % 2 == 0)
-		precise_sleep(10);
 	if (philo->data->num_philos == 1)
 	{
 		print_state(philo, "has taken a fork");
 		precise_sleep(philo->data->time_to_die);
-		return (NULL);
 	}
+	if (philo->id % 2 == 0)
+		precise_sleep(10);
 	while (1)
 	{
 		if (check_death_or_meal(philo))
