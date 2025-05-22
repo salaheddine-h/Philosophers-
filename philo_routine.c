@@ -85,6 +85,7 @@ void	*philo_routine(void *arg)
 		take_forks(philo);
 		eat_sleeping(philo);
 		thinking(philo);
+		// precise_sleep(10);
 	}
 	return (NULL);
 }

@@ -20,26 +20,26 @@ long	get_time(void)
 	return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
 }
 
-/*void	precise_sleep(long ms)
+void	precise_sleep(long ms)
 {
 	long	start;
 
 	start = get_time();
 	while (get_time() - start <= ms)
 		usleep(100);
-}*/
-
-void precise_sleep(long ms)
-{
-	long start;
-	long now;
-
-	start = get_time();
-	while (1)
-	{
-		now = get_time();
-		if (now - start >= ms)
-			break;
-		usleep(100); // sleep 1ms instead of 0.1ms
-	}
 }
+
+// void precise_sleep(long ms)
+// {
+// 	long start;
+// 	long now;
+
+// 	start = get_time();
+// 	while (1)
+// 	{
+// 		now = get_time();
+// 		if (now - start >= ms)
+// 			break;
+// 		usleep(100); // sleep 1ms instead of 0.1ms
+// 	}
+// }
