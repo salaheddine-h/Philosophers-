@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:33:49 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/22 19:09:32 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/22 19:23:33 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,6 @@ void	*philo_routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	pthread_mutex_lock(&philo->data->death_mutex);
-	philo->last_meal = get_time();
-	pthread_mutex_unlock(&philo->data->death_mutex);
-	// if(philo->data->num_philos > 10)
-	// {
-	// 	if (philo->id % 2 == 1)
-	// 		precise_sleep(1);
-	// }
 	if (philo->data->num_philos >= 50)
 		precise_sleep(philo->id);
 	if (philo->data->num_philos == 1)
@@ -89,7 +81,6 @@ void	*philo_routine(void *arg)
 		take_forks(philo);
 		eat_sleeping(philo);
 		thinking(philo);
-		// precise_sleep(10);
 	}
 	return (NULL);
 }

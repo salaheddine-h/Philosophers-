@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salah <salah@student.42.fr>                +#+  +:+       +#+        */
+/*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:53:50 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/22 18:15:55 by salah            ###   ########.fr       */
+/*   Updated: 2025/05/22 19:17:09 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,6 @@ void	monitor(t_data *data)
 {
 	int	i;
 
-	pthread_mutex_lock(&data->death_mutex);
-	data->philos->last_meal = get_time();
-	pthread_mutex_unlock(&data->death_mutex);
 	while (1)
 	{
 		i = 0;
