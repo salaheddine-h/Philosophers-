@@ -55,7 +55,6 @@ void	monitor(t_data *data)
 	while (1)
 	{
 		i = 0;
-		
 		while (i < data->num_philos)
 		{
 			if (check_death(data, i))

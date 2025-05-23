@@ -6,7 +6,7 @@
 /*   By: salhali <salhali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:33:49 by salhali           #+#    #+#             */
-/*   Updated: 2025/05/22 19:23:33 by salhali          ###   ########.fr       */
+/*   Updated: 2025/05/23 17:34:11 by salhali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ void	*philo_routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	if (philo->data->num_philos >= 50)
-		precise_sleep(philo->id);
 	if (philo->data->num_philos == 1)
 	{
 		print_state(philo, "has taken a fork");
 		precise_sleep(philo->data->time_to_die);
 	}
+	if (philo->data->num_philos >= 3)
+		precise_sleep(philo->id * 2);
 	while (1)
 	{
 		if (check_death_or_meal(philo))
@@ -84,3 +84,4 @@ void	*philo_routine(void *arg)
 	}
 	return (NULL);
 }
+// 5 800 200 200 7
